@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Тест: Базовая конфигурация маршрутизатора</title>
+ <style>
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+
+ body {
+ background: #e9eef3;
+ font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+ padding: 40px 20px;
+ color: #1e2f3e;
+ }
+
+ .test-container {
+ max-width: 950px;
+ margin: 0 auto;
+ background: white;
+ border-radius: 24px;
+ box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+ overflow: hidden;
+ padding: 32px 36px 42px;
+ }
+
+ /* Заголовки и инструкция */
+ .instruction {
+ border-left: 5px solid #2c7da0;
+ background: #f4f9fe;
+ padding: 16px 22px;
+ border-radius: 16px;
+ margin-bottom: 30px;
+ }
+
+ .instruction h2 {
+ font-size: 1.6rem;
+ font-weight: 600;
+ color: #0b2b3f;
+ margin-bottom: 8px;
+ }
+
+ .instruction p {
+ font-size: 0.95rem;
+ color: #2c3e4e;
+ margin-bottom: 12px;
+ }
+
+ .module-info {
+ margin-top: 15px;
+ padding-top: 12px;
+ border-top: 1px dashed #bdd4e2;
+ font-weight: 500;
+ color: #1f5e7a;
+ }
+
+ .module-info span {
+ background: #e1edf5;
+ padding: 4px 12px;
+ border-radius: 30px;
+ font-size: 0.85rem;
+ }
+
+ /* Карточка вопроса */
+ .question-card {
+ margin-bottom: 32px;
+ padding-bottom: 16px;
+ border-bottom: 1px solid #e2eaf1;
+ }
+
+ .question-text {
+ font-size: 1.08rem;
+ font-weight: 600;
+ color: #0a2f44;
+ margin-bottom: 14px;
+ background: #fafcfd;
+ padding: 6px 0;
+ }
+
+ .options {
+ display: flex;
+ flex-direction: column;
+ gap: 12px;
+ padding-left: 12px;
+ }
+
+ .option {
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ font-size: 0.98rem;
+ cursor: pointer;
+ }
+
+ input[type="radio"] {
+ width: 18px;
+ height: 18px;
+ accent-color: #2c7da0;
+ cursor: pointer;
+ }
+
+ .option label {
+ cursor: pointer;
+ color: #1e4663;
+ }
+
+ /* Подсветка правильного ответа (при показе) */
+ .correct-highlight {
+ background-color: #d4edda;
+ border-radius: 12px;
+ padding: 6px 12px;
+ margin: -6px -12px;
+ transition: 0.1s;
+ }
+
+ /* Блок кнопок */
+ .actions {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 18px;
+ margin: 32px 0 24px;
+ justify-content: center;
+ }
+
+ .btn {
+ border: none;
+ background: #eef3fc;
+ padding: 10px 28px;
+ font-size: 1rem;
+ font-weight: 600;
+ border-radius: 40px;
+ cursor: pointer;
+ transition: 0.2s;
+ color: #1e4663;
+ box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+ }
+
+ .btn-check {
+ background: #2c7da0;
+ color: white;
+ box-shadow: 0 4px 8px rgba(44,125,160,0.2);
+ }
+ .btn-check:hover {
+ background: #1f5e7a;
+ transform: translateY(-1px);
+ }
+
+ .btn-show {
+ background: #ffb347;
+ color: #2d2b1f;
+ }
+ .btn-show:hover {
+ background: #f0a32e;
+ }
+
+ .btn-reset {
+ background: #e2e8f0;
+ color: #2d3e50;
+ }
+ .btn-reset:hover {
+ background: #cbd5e1;
+ }
+
+ /* Результат */
+ .result-area {
+ background: #f0f5fa;
+ border-radius: 20px;
+ padding: 14px 20px;
+ text-align: center;
+ font-size: 1rem;
+ margin-top: 10px;
+ color: #0f3b4f;
+ font-weight: 500;
+ }
+
+ hr {
+ margin: 10px 0 5px;
+ border-color: #e2eaf1;
+ }
+
+ @media (max-width: 650px) {
+ .test-container {
+ padding: 20px 18px;
+ }
+ .question-text {
+ font-size: 1rem;
+ }
+ .btn {
+ padding: 8px 18px;
+ }
+ }
+ </style>
+</head>
+<body>
+
+<div class="test-container">
+ <!-- Блок инструкции (как на скриншотах) -->
+ <div class="instruction">
+ <h2>📘 Инструкция по выполнению теста</h2>
+ <p>Выберите один правильный вариант ответа для каждого вопроса. После завершения нажмите «Проверка», чтобы увидеть результат. Кнопка «Показать» подсветит верные ответы, «Сброс» очистит все отметки.</p>
+ <div class="module-info">
+ <span>🔧 1.4 Базовая конфигурация маршрутизатора</span> &nbsp;|&nbsp; 
+ <span>📚 Практика и контрольная работа модуля</span>
+ </div>
+ </div>
+
+ <!-- Вопрос 1 -->
+ <div class="question-card" id="q1">
+ <div class="question-text">1. Какая команда будет отображать сводку всех интерфейсов с поддержкой IPv6 на маршрутизаторе, который включает адрес IPv6 и рабочее состояние?</div>
+ <div class="options">
+ <label class="option"><input type="radio" name="q1" value="wrong1"> show ip interface brief</label>
+ <label class="option"><input type="radio" name="q1" value="wrong2"> show ipv6 route</label>
+ <label class="option"><input type="radio" name="q1" value="wrong3"> show running-config interface</label>
+ <label class="option"><input type="radio" name="q1" value="correct"> show ipv6 interface brief</label>
+ </div>
+ </div>
+
+ <!-- Вопрос 2 -->
+ <div class="question-card" id="q2">
+ <div class="question-text">2. Какой код используется при проверке маршрутов для идентификации непосредственно связанных маршрутов в таблице маршрутизации?</div>
+ <div class="options">
+ <label class="option"><input type="radio" name="q2" value="correct"> C</label>
+ <label class="option"><input type="radio" name="q2" value="wrong1"> H</label>
+ <label class="option"><input type="radio" name="q2" value="wrong2"> L</label>
+ <label class="option"><input type="radio" name="q2" value="wrong3"> R</label>
+ </div>
+ </div>
+
+ <!-- Вопрос 3 -->
+ <div class="question-card" id="q3">
+ <div class="question-text">3. Какая команда будет отображать количество потоков пакетов, конфликты и сбои буфера на интерфейсе?</div>
+ <div class="options">
+ <label class="option"><input type="radio" name="q3" value="correct"> show interface</label>
+ <label class="option"><input type="radio" name="q3" value="wrong1"> show ip interface</label>
+ <label class="option"><input type="radio" name="q3" value="wrong2"> show running-config interface</label>
+ </div>
+ </div>
+
+ <!-- Вопрос 4 -->
+ <div class="question-card" id="q4">
+ <div class="question-text">4. Интерфейс с IPv6 должен иметь какой тип адреса?</div>
+ <div class="options">
+ <label class="option"><input type="radio" name="q4" value="wrong1"> обратная петля</label>
+ <label class="option"><input type="radio" name="q4" value="wrong2"> глобальный индивидуальный адрес</label>
+ <label class="option"><input type="radio" name="q4" value="correct"> локальный адрес канала</label>
+ <label class="option"><input type="radio" name="q4" value="wrong3"> статический MAC-адрес</label>
+ </div>
+ </div>
+
+ <!-- Вопрос 5 -->
+ <div class="question-card" id="q5">
+ <div class="question-text">5. Какой символ используется для фильтрации команд?</div>
+ <div class="options">
+ <label class="option"><input type="radio" name="q5" value="correct"> pipe |</label>
+ <label class="option"><input type="radio" name="q5" value="wrong1"> comma ,</label>
+ <label class="option"><input type="radio" name="q5" value="wrong2"> colon :</label>
+ <label class="option"><input type="radio" name="q5" value="wrong3"> semi colon ;</label>
+ </div>
+ </div>
+
+ <!-- Вопрос 6 -->
+ <div class="question-card" id="q6">
+ <div class="question-text">6. Какое выражение фильтрации будет показывать все выходные строки, начиная от строки, соответствующей выражению фильтрации?</div>
+ <div class="options">
+ <label class="option"><input type="radio" name="q6" value="wrong1"> section</label>
+ <label class="option"><input type="radio" name="q6" value="correct"> begin</label>
+ <label class="option"><input type="radio" name="q6" value="wrong2"> include</label>
+ </div>
+ </div>
+
+ <!-- Кнопки управления -->
+ <div class="actions">
+ <button class="btn btn-check" id="checkBtn">✓ Проверка</button>
+ <button class="btn btn-show" id="showBtn">🔍 Показать</button>
+ <button class="btn btn-reset" id="resetBtn">⟳ Сброс</button>
+ </div>
+
+ <!-- Блок вывода результата -->
+ <div id="resultMsg" class="result-area">
+ Нажмите «Проверка», чтобы оценить свои знания.
+ </div>
+</div>
+
+<script>
+ // Правильные ответы (value "correct" для каждого вопроса)
+ const correctMap = {
+ q1: 'show ipv6 interface brief',
+ q2: 'C',
+ q3: 'show interface',
+ q4: 'локальный адрес канала',
+ q5: 'pipe |',
+ q6: 'begin'
+ };
+
+ // Функция для получения выбранного ответа по группе radio
+ function getSelectedValue(radioName) {
+ const radios = document.querySelectorAll(`input[name="${radioName}"]`);
+ for (let radio of radios) {
+ if (radio.checked) {
+ // получаем текст метки рядом с выбранным радио
+ const parentLabel = radio.closest('.option');
+ if (parentLabel) {
+ const labelText = parentLabel.innerText.trim();
+ return labelText;
+ }
+ return radio.value === 'correct' ? correctMap[radioName] : radio.value; // fallback
+ }
+ }
+ return null;
+ }
+
+ // Подсветка правильных ответов (зелёный фон)
+ function highlightCorrectAnswers() {
+ removeHighlights();
+ for (let i = 1; i <= 6; i++) {
+ const qId = `q${i}`;
+ const correctAnswerText = correctMap[qId];
+ const options = document.querySelectorAll(`#${qId} .option`);
+ options.forEach(opt => {
+ const optText = opt.innerText.trim();
+ if (optText === correctAnswerText) {
+ opt.style.backgroundColor = '#d4edda';
+ opt.style.borderRadius = '12px';
+ opt.style.padding = '6px 12px';
+ opt.style.margin = '-6px -12px';
+ opt.classList.add('correct-highlight');
+ }
+ });
+ }
+ const resultDiv = document.getElementById('resultMsg');
+ resultDiv.innerHTML = '✅ Правильные ответы подсвечены зелёным. Нажмите «Сброс», чтобы убрать подсветку.';
+ }
+
+ function removeHighlights() {
+ for (let i = 1; i <= 6; i++) {
+ const options = document.querySelectorAll(`#q${i} .option`);
+ options.forEach(opt => {
+ opt.style.backgroundColor = '';
+ opt.style.padding = '';
+ opt.style.margin = '';
+ opt.classList.remove('correct-highlight');
+ });
+ }
+ }
+
+ // Проверка ответов
+ function checkAnswers() {
+ let correctCount = 0;
+ let total = 6;
+ let results = [];
+
+ for (let i = 1; i <= total; i++) {
+ const qName = `q${i}`;
+ const selected = getSelectedValue(qName);
+ const correctAns = correctMap[qName];
+ if (selected && selected === correctAns) {
+ correctCount++;
+ results.push(`✅ Вопрос ${i} — верно`);
+ } else {
+ results.push(`❌ Вопрос ${i} — неверно (правильный: "${correctAns}")`);
+ }
+ }
+
+ const resultDiv = document.getElementById('resultMsg');
+ if (correctCount === total) {
+ resultDiv.innerHTML = `🎉 Поздравляем! Вы ответили правильно на все ${total} вопросов! 🎉<br><small>Отличный результат!</small>`;
+ } else {
+ resultDiv.innerHTML = `📊 Результат: ${correctCount} из ${total} правильных.<br><small>${results.join(' · ')}</small>`;
+ }
+ // убираем подсветку, если она была
+ removeHighlights();
+ }
+
+ // Сброс всех ответов и убираем подсветку
+ function resetTest() {
+ const allRadios = document.querySelectorAll('input[type="radio"]');
+ allRadios.forEach(radio => radio.checked = false);
+ removeHighlights();
+ const resultDiv = document.getElementById('resultMsg');
+ resultDiv.innerHTML = '🗑️ Все ответы сброшены. Выберите варианты и нажмите «Проверка».';
+ }
+
+ // Обработчики
+ document.getElementById('checkBtn').addEventListener('click', checkAnswers);
+ document.getElementById('showBtn').addEventListener('click', highlightCorrectAnswers);
+ document.getElementById('resetBtn').addEventListener('click', resetTest);
+</script>
+</body>
+</html>
